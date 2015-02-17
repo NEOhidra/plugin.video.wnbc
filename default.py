@@ -182,6 +182,16 @@ def getVideo(surl):
             try:
              html = getRequest(surl)
              finalurl  = re.compile('<video src="(.+?)"').search(html).group(1)
+             if 'nbcvodenc-i.akamaihd.net' in finalurl:
+               html = getRequest(finalurl)
+               html += '#'
+               choices = re.compile('BANDWIDTH=([0-9]*).+?http(.+?)#').findall(html)
+               bw = 0
+               for bwidth, link in choices:
+                  if int(bwidth) > bw:
+                     bw = int(bwidth)
+                     finalurl = 'http'+link
+
              xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, xbmcgui.ListItem(path = finalurl))
 
              try:
@@ -206,11 +216,9 @@ def getVideo(surl):
                      ofile.write( '%s\n%s --> %s\n%s\n\n' % (idx, cstart, cend, caption))
                      idx += 1
                    ofile.close()
-                   for i in range(20):
-                      xbmc.sleep(500)
-                      if xbmc.Player().isPlaying():
+                   xbmc.sleep(5000)
+                   if xbmc.Player().isPlaying():
                         xbmc.Player().setSubtitles(subfile)
-                        break
              except:
                 pass    
 
