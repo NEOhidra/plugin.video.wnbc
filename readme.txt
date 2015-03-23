@@ -1,3 +1,4 @@
+Version 1.0.6 use proxy for classics
 Version 1.0.5 reduce use of proxy
 Version 1.0.4 Kodi.org release
 Version 1.0.3 fixed "classic" episodes

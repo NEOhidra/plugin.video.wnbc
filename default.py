@@ -175,7 +175,7 @@ def getShow(gsurl, catname):
 
 def getVideo(surl):
             if not ('http://link.theplatform.com' in surl):
-                html = getRequest(surl, donotuseproxy=True)
+                html = getRequest(surl)
                 surl = re.compile('<meta name="tp:EnableExternalController".+?href="(.+?)"').search(html).group(1)
                 surl = surl.replace('&player=','&manifest=m3u&player=',1)
 
