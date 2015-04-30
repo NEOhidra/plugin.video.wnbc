@@ -174,6 +174,7 @@ def getShow(gsurl, catname):
 
 
 def getVideo(surl):
+            if surl.startswith('//') : surl = 'http:'+surl
             if not ('http://link.theplatform.com' in surl):
                 html = getRequest(surl)
                 surl = re.compile('<meta name="tp:EnableExternalController".+?href="(.+?)"').search(html).group(1)
