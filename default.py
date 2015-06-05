@@ -76,6 +76,7 @@ def getRequest(url, user_data=None, headers = defaultHeaders , alert=True, donot
 
 
 def getSources():
+        xbmcplugin.setContent(int(sys.argv[1]), 'files')
         xbmcplugin.addSortMethod(int(sys.argv[1]),xbmcplugin.SORT_METHOD_UNSORTED)
         xbmcplugin.addSortMethod(int(sys.argv[1]),xbmcplugin.SORT_METHOD_TITLE)
         xbmcplugin.addSortMethod(int(sys.argv[1]),xbmcplugin.SORT_METHOD_EPISODE)
