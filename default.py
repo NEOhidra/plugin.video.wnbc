@@ -76,7 +76,6 @@ def getRequest(url, user_data=None, headers = defaultHeaders , alert=True, donot
 
 
 def getSources():
-        xbmcplugin.setContent(int(sys.argv[1]), 'files')
         xbmcplugin.addSortMethod(int(sys.argv[1]),xbmcplugin.SORT_METHOD_UNSORTED)
         xbmcplugin.addSortMethod(int(sys.argv[1]),xbmcplugin.SORT_METHOD_TITLE)
         xbmcplugin.addSortMethod(int(sys.argv[1]),xbmcplugin.SORT_METHOD_EPISODE)
@@ -126,7 +125,7 @@ def getSources():
         addon.setSetting(id='init_meta', value='false')
         xbmcplugin.addDirectoryItems(int(sys.argv[1]), ilist, len(ilist))
         if addon.getSetting('enable_views') == 'true':
-           xbmc.executebuiltin("Container.SetViewMode(%s)" % addon.getSetting('default_view'))
+           xbmc.executebuiltin("Container.SetViewMode(%s)" % addon.getSetting('shows_view'))
         xbmcplugin.endOfDirectory(int(sys.argv[1]))
 
 
