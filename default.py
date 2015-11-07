@@ -240,7 +240,7 @@ def getVideo(surl):
                 surl = 'http://link.theplatform.com/s/NnzsPC/media/'+surl+'?mbr=true&player=Onsite%20Player&policy=43674&manifest=m3u&format=SMIL&Tracking=true&Embedded=true&formats=MPEG4,FLV,MP3'
              else:
                 surl = surl.split('?',1)[0].rsplit('/',1)[1]
-                surl = 'https://link.theplatform.com/s/NnzsPC/'+surl+'?mbr=true&mbr=true&player=Onsite%20Player%20--%20No%20End%20Card&policy=43674&format=SMIL&manifest=m3u'
+                surl = 'https://link.theplatform.com/s/NnzsPC/media/'+surl+'?mbr=true&mbr=true&player=Onsite%20Player%20--%20No%20End%20Card&policy=43674&format=SMIL&manifest=m3u&Tracking=true&Embedded=true&formats=MPEG4,FLV,MP3'
              html = getRequest(surl)
              finalurl  = re.compile('<video src="(.+?)"',re.DOTALL).search(html).group(1)
              if 'nbcvodenc-i.akamaihd.net' in finalurl:
